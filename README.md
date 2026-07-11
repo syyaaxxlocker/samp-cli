@@ -1,4 +1,4 @@
-# cli-samp-client
+# samp-cli
 
 CLI samp client (suckless-like), that can be launch samp and arizona. 
 
