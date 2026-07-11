@@ -44,7 +44,7 @@ void launch_game(const Server *server, GameType game)
     
     if (fork() == 0)
     {
-        int logfd = open("/tmp/cli-samp-client.log", O_WRONLY | O_CREAT, 0644);
+        int logfd = open("/tmp/cli-samp-client.log", O_WRONLY | O_CREAT | O_TRUNC, 0644);
         if (logfd == -1) _exit(126);
 
         dup2(logfd, STDOUT_FILENO);

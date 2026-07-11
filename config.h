@@ -6,7 +6,7 @@ static const char path_to_arizona[] = "/home/qwbash/.wine/drive_c/users/qwbash/A
 #define DEFAULT_PORT "7777"
 
 // for fix broken ru symbols (kryakoziabri)
-// do export LC_ALL=ru_RU.UtF-8 before launch game
+// do export LC_ALL=ru_RU.UTF-8 before launch game
 #define EXPORT_RU_LOCALE 1 // 1 - yes ; 0 - no
 
 static const Server servers[] = {
