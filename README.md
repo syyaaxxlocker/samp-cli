@@ -10,14 +10,14 @@ sudo make install clean
 Usage:
 ```
 #Launch samp
-samp-client
+samp-cli
 
 #Launch arizona
-samp-client -a
+samp-cli -a
 
 #Display saved servers
-samp-client -l
+samp-cli -l
 
 #Set priority nickname. This nickname will be used instead that in config
-samp-client -n
+samp-cli -n
 ```

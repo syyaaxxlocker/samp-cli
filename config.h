@@ -1,6 +1,6 @@
 // absolute path. example
-static const char path_to_gtasa[] = "/home/user/.wine/drive_c/Program Files (x86)/Rockstar Games/GTA San Andreas";
-static const char path_to_arizona[] = "/home/user/.wine/drive_c/users/qwbash/AppData/Local/Programs/Arizona Games Launcher/bin/arizona/";
+static const char path_to_gtasa[] = "/home/qwbash/.wine/drive_c/Program Files (x86)/Rockstar Games/GTA San Andreas";
+static const char path_to_arizona[] = "/home/qwbash/.wine/drive_c/users/qwbash/AppData/Local/Programs/Arizona Games Launcher/bin/arizona/";
 
 #define DEFAULT_MEM "4096"
 #define DEFAULT_PORT "7777"
