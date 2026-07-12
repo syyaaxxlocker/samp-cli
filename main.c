@@ -64,10 +64,15 @@ void launch_game(const Server *server, GameType game)
         } else {
             nickname = (char *)server->nickname;
         }
-
+        
         switch (game) {
             case SAMP: {
-                char *args[] = { "wine", "gta_sa.exe", "-c", "-h", (char *)server->ip, "-p", (char *)server->port, "-mem", DEFAULT_MEM, "-n", nickname, NULL };        
+                char address[64];
+                char nicknameArg[256];
+                snprintf(address, sizeof(address), "%s:%s", (char *)server->ip, (char *)server->port);
+                snprintf(nicknameArg, sizeof(nicknameArg), "-n%s", nickname);
+
+                char *args[] = { "wine", "samp.exe", address, nicknameArg, NULL };        
                 execvp("wine", args);
                 break;
             }
