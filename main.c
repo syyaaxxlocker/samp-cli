@@ -5,6 +5,7 @@
 #include <errno.h>
 #include <string.h>
 #include <fcntl.h>
+#include <sys/wait.h>
 
 #define ARRAY_LENGHT(arr) (sizeof(arr) / sizeof((arr)[0]))
 
@@ -67,12 +68,22 @@ void launch_game(const Server *server, GameType game)
         
         switch (game) {
             case SAMP: {
+                pid_t regpid = fork();
+                if (regpid == 0)
+                {
+                    char *reg_argv[] = {"wine", "reg", "add", "HKCU\\Software\\SAMP", "/v", "gta_sa_exe", "/t", "REG_SZ", "/d", path_to_gtasa_exe, "/f", NULL};
+                    execvp("wine", reg_argv);
+                    _exit(1);
+                }
+                int status;
+                waitpid(regpid, &status, 0);
+
                 char address[64];
                 char nicknameArg[256];
                 snprintf(address, sizeof(address), "%s:%s", (char *)server->ip, (char *)server->port);
                 snprintf(nicknameArg, sizeof(nicknameArg), "-n%s", nickname);
 
-                char *args[] = { "wine", "samp.exe", address, nicknameArg, NULL };        
+                char *args[] = { "wine", "samp.exe", address, nickname, NULL };        
                 execvp("wine", args);
                 break;
             }
